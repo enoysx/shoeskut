@@ -1,7 +1,7 @@
 @extends('layouts.template')
 @section('content')
     <div class=" w-50 mb-3 p-5">
-        <h4 class="mt-3">Tambah Data</h4>
+        <h4 class="mt-3">Input Data</h4>
         <form method="POST" class="mt-5" action="{{ url('/post-pengerjaan') }}">
             @csrf
             <div class="mb-3">
@@ -24,8 +24,9 @@
                     <label class="form-label">Status</label>
                     <select class="form-select" required name="status" id="">
                         <option disabled>pilih</option>
-                        <option value="pengerjaan">Pengerjaan</option>
-                        <option value="pengembalian">Pengembalian</option>
+                        <option value="workmanship">Workmanship</option>
+                        <option value="detailing">Detailing</option>
+                        <option value="delivery">Delivery</option>
                     </select>
                 </div>
             </div>

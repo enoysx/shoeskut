@@ -26,6 +26,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/service', function () {
+    return view('service');
+});
+
+Route::get('/social-media', function () {
+    return view('social');
+});
+
 // user & role & permission
 Route::get('/users', [ServicesController::class, 'get_user'])->name('user');
 Route::get('/create-user', [ServicesController::class, 'create_user']);

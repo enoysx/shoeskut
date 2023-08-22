@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Dashboard</title>
+    <title>Shoeskut</title>
+    <link rel="icon" href="{{ url('/logo.png') }}">
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="{{ url('/css/styles.css') }}" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
@@ -16,10 +17,10 @@
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Logo-->
-        <a class="navbar-logo ps-3" href="index.html"><img src="{{ url('/logo.jpg') }}" width="35" height="35"
+        <a class="navbar-logo ps-3" ><img src="{{ url('/logo.png') }}" width="35" height="35"
                 alt=""></a>
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="index.html" style="font-size: 12px">E-Services Laundry Sepatu</a>
+        <a class="navbar-brand ps-3"  style="font-size: 18px">SHOESKUT</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
                 class="fas fa-bars"></i></button>

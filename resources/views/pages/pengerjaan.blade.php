@@ -6,7 +6,7 @@
                 <h4>Pengerjaan</h4>
             </div>
             <div class="col">
-                <a href="{{ url('/create-pengerjaan') }}" class="btn btn-sm btn-primary">Tambah data</a>
+                <a href="{{ url('/create-pengerjaan') }}" class="btn btn-sm btn-primary">Input Data</a>
             </div>
         </div>
         <form action="" method="get">
@@ -15,12 +15,12 @@
         <table class="table mt-4">
             <thead>
                 <tr>
-                    <th scope="col">Nama Customer</th>
-                    <th scope="col">No. HP</th>
-                    <th scope="col">Brand Sepatu</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Shoe Brand</th>
                     <th scope="col">Treatment</th>
                     <th scope="col">Status</th>
-                    <th scope="col">Aksi</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>

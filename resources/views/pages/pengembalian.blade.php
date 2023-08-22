@@ -3,10 +3,10 @@
     <div class="container mt-5 w-100">
         <div class="row justify-content-between">
             <div class="col">
-                <h4>Pengembalian</h4>
+                <h4>Delivery</h4>
             </div>
             <div class="col">
-                <a href="{{ url('/create-pengembalian') }}" class="btn btn-sm btn-primary">Tambah data</a>
+                <a href="{{ url('/create-pengembalian') }}" class="btn btn-sm btn-primary">Input Data</a>
             </div>
         </div>
         <form action="" method="get">
@@ -15,10 +15,10 @@
         <table class="table mt-4">
             <thead>
                 <tr>
-                    <th scope="col">Nama Customer</th>
-                    <th scope="col">No. HP</th>
-                    <th scope="col">Brand Sepatu</th>
-                    <th scope="col">Aksi</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Comment</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>

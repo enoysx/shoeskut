@@ -1,7 +1,7 @@
 @extends('layouts.template')
 @section('content')
     <div class=" w-50 mb-3 p-5">
-        <h4 class="mt-3">Tambah Data Pembayaran</h4>
+        <h4 class="mt-3">Input Data Payment</h4>
         <form method="POST" class="mt-5" action="{{ url('/post-pembayaran') }}">
             @csrf
             <div class="mb-3">
@@ -19,19 +19,19 @@
                         <option value="">data tidak ditemukan</option>
                     @endforelse
                 </select>
-                <label class="form-label">Jumlah</label>
+                <label class="form-label">Many</label>
                 <input type="text" required name="many" value="{{ $data ? $data->many : '' }}" class="form-control">
-                <label class="form-label">Harga</label>
+                <label class="form-label">Price</label>
                 <input type="text" required name="price" value="{{ $data ? $data->price : '' }}" class="form-control">
-                <label class="form-label">Jumlah Jatuh Tempo</label>
+                <label class="form-label">Amount Due</label>
                 <input type="text" required name="amount_due" value="{{ $data ? $data->amount_due : '' }}"
                     class="form-control">
-                <label class="form-label">Diskon</label>
+                <label class="form-label">Discount</label>
                 <input type="text" required name="discount" value="{{ $data ? $data->discount : '' }}"
                     class="form-control">
                 <label class="form-label">Bank</label>
                 <input type="text" required name="bank" value="{{ $data ? $data->bank : '' }}" class="form-control">
-                <label class="form-label">Tanggal Jatuh Tempo</label>
+                <label class="form-label">Due Date</label>
                 <input type="date" required name="due_date" value="{{ $data ? $data->due_date : '' }}"
                     class="form-control">
             </div>

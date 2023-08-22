@@ -3,12 +3,12 @@
     <div class="container mt-5 w-100">
         <div class="row justify-content-between">
             <div class="col">
-                <h4>Order Jasa</h4>
+                <h4>Report Order</h4>
             </div>
             <div class="col">
                 <form action="{{ url('/print-laporan') }}" method="post">
                 @csrf
-                <button type="submit" class="btn btn-danger">Print Laporan</button>
+                <button type="submit" class="btn btn-danger">Print Report</button>
                 </form>
 
             </div>
@@ -19,17 +19,16 @@
         <table class="table mt-4">
             <thead>
                 <tr>
-                    <th scope="col">No INV</th>
-                    <th scope="col">Nama Customer</th>
-                    <th scope="col">Tanggal Masuk</th>
-                    <th scope="col">Tanggal Keluar</th>
-                    <th scope="col">Merk Sepatu</th>
-                    <th scope="col">Alamat</th>
-                    <th scope="col">No Telp</th>
+                    <th scope="col">Invoice Number</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Order Date</th>
+                    <th scope="col">Shoe Brand</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Phone</th>
                     <th scope="col">Treatment</th>
-                    <th scope="col">Jumlah</th>
-                    <th scope="col">Harga</th>
-                    <th scope="col">Total Harga</th>
+                    <th scope="col">Many</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Amount Due</th>
                     {{-- <th scope="col">Aksi</th> --}}
                 </tr>
             </thead>
@@ -39,14 +38,13 @@
                         <td>{{ $customer->invoice_number }}</td>
                         <td>{{ $customer->name }}</td>
                         <td>{{ $customer->order_date }}</td>
-                        <td>{{ $customer->updated_at }}</td>
                         <td>{{ $customer->shoe_brand }}</td>
                         <td>{{ $customer->address }}</td>
                         <td>{{ $customer->phone }}</td>
                         <td>{{ $customer->treatment }}</td>
                         <td>{{ $customer->many }}</td>
                         <td>{{ $customer->price }}</td>
-                        <td>{{ $customer->total }}</td>
+                        <td>{{ $customer->amount_due }}</td>
                         {{-- <td>
                             <div class="d-flex gap-2">
                                 <div class="">

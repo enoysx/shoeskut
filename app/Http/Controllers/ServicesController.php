@@ -206,6 +206,7 @@ class ServicesController extends Controller
                 'user_id' => auth()->user()->hasRole('customer') ? auth()->user()->id : $request->customer_id,
                 'name' => $request->name,
                 'phone' => $request->phone,
+                'treatment' => $request->treatment,
                 'address' => $request->address,
                 'shoe_brand' => $request->shoe_brand,
                 'size' => $request->size,
@@ -222,6 +223,7 @@ class ServicesController extends Controller
             'user_id' => auth()->user()->hasRole('customer') ? auth()->user()->id : $request->customer_id,
             'name' => $request->name,
             'phone' => $request->phone,
+            'treatment' => $request->treatment,
             'address' => $request->address,
             'shoe_brand' => $request->shoe_brand,
             'size' => $request->size,
@@ -263,7 +265,6 @@ class ServicesController extends Controller
 
             $datas = DB::table('payments')->where(function ($customer) use ($request) {
                 $customer->where('invoice_number', 'like', '%' . $request->search . '%')
-                    ->orWhere('treatment', 'like', '%' . $request->search . '%')
                     ->orWhere('bill_to', 'like', '%' . $request->search . '%');
             })
                 ->join('customers', function ($c) {
@@ -272,17 +273,16 @@ class ServicesController extends Controller
                 })
                 ->when($request->start_date && $request->end_date, function ($result) use ($request) {
                     $result->where('created_at', '>', $request->start_date)->where('created_at', '<', $request->end_date);
-                })->select('payments.*', 'customers.name as customer_name')->paginate(10);
+                })->select('payments.*', 'customers.name as customer_name', 'customers.treatment as treatment')->paginate(10);
         } else {
             $datas = DB::table('payments')->where(function ($customer) use ($request) {
                 $customer->where('invoice_number', 'like', '%' . $request->search . '%')
-                    ->orWhere('treatment', 'like', '%' . $request->search . '%')
                     ->orWhere('bill_to', 'like', '%' . $request->search . '%');
             })
                 ->join('customers', 'payments.bill_to', '=', 'customers.id')
                 ->when($request->start_date && $request->end_date, function ($result) use ($request) {
                     $result->where('created_at', '>', $request->start_date)->where('created_at', '<', $request->end_date);
-                })->select('payments.*', 'customers.name as customer_name')->paginate(10);
+                })->select('payments.*', 'customers.name as customer_name', 'customers.treatment as treatment')->paginate(10);
         }
 
         return view('pages.pembayaran', compact('datas'));
@@ -303,7 +303,7 @@ class ServicesController extends Controller
         unset($payloadPembayaran['_token']);
         unset($payloadPembayaran['pembayaran_id']);
 
-        $payloadPembayaran['total'] = $payloadPembayaran['price'] * $payloadPembayaran['many'];
+        $payloadPembayaran['amount_due'] = $payloadPembayaran['price'] * $payloadPembayaran['many'];
         if ($payloadPembayaran['id'] != 0) {
             $payloadPembayaran['updated_at'] = now();
 
